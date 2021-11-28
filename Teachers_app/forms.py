@@ -3,10 +3,12 @@ from django import forms
 from .models import TeachersList
 from Students_app.models import RegisteredCourse
 
+
 class TeachersListForm(ModelForm):
     class Meta:
         model = TeachersList
         fields = '__all__'
+
 
 class loginForm(forms.Form):
     username = forms.CharField(max_length=50)
@@ -16,4 +18,13 @@ class loginForm(forms.Form):
 class RegisteredCourseForm(ModelForm):
     class Meta:
         model = RegisteredCourse
-        fields ='__all__'
+        fields = '__all__'
+
+
+class UpdateTeacherProfile(ModelForm):
+    class Meta:
+        model = TeachersList
+        exclude = ['userId','teacher','empid']
+        # widgets ={
+        #     'dateOfBirth':DateInput(format=["%d-%m-%Y"],),
+        # }

@@ -37,13 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'crispy_forms',
     'Teachers_app',
     'Students_app',
     'Admin_panel',
     'channels',
     'chat_app',
-
 
 ]
 
@@ -84,12 +84,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lms',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -138,18 +134,17 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
-ABSOLUTE_URL_OVERRIDES = {
-    'auth.user': lambda o: "/admin_panel/addteacher/",
-
-}
-
-
-
 # STATIC_ROOT = BASE_DIR/'static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# STATIC_ROOT = BASE_DIR/'static'
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+
 
 ASGI_APPLICATION = "LMS_system.asgi.application"
 
